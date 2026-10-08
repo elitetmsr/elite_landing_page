@@ -1,0 +1,228 @@
+{
+  "nav": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "techPlatforms": "Tech platforms",
+    "projects": "Projects & products",
+    "careers": "Careers",
+    "about": "About us",
+    "community": "Community",
+    "contact": "Contact us",
+    "joinCommunity": "Join the community",
+    "mainNav": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchLanguage": "Switch to Arabic",
+    "languageName": "العربية"
+  },
+  "home": {
+    "meta": {
+      "title": "{brand} | Software solutions and developer community",
+      "description": "Custom software, web platforms, mobile apps and ERP systems for growing companies, plus an open community where developers and founders build ideas together."
+    },
+    "hero": {
+      "eyebrow": "Software house and developer community in Cairo",
+      "title": "Engineering expertise for your business, and a community that builds with you",
+      "subtitle": "We build custom software, web platforms, mobile apps and ERP systems for growing companies, and run an open community where developers and founders turn ideas into products.",
+      "primaryCta": "Explore our solutions",
+      "secondaryCta": "Join the community",
+      "chips": {
+        "web": "Web and cloud platforms",
+        "mobile": "Flutter mobile apps",
+        "erp": "Odoo and ERPNext",
+        "ai": "AI and automation"
+      },
+      "ideaCard": {
+        "label": "From the ideas bank",
+        "title": "Voice AI agent that confirms cash-on-delivery orders",
+        "cta": "Browse the ideas bank"
+      },
+      "scrollHint": "Scroll to explore"
+    },
+    "tech": {
+      "label": "Technologies we build with"
+    },
+    "ecosystem": {
+      "eyebrow": "Two ways to work with us",
+      "title": "One team serving companies and the developer community",
+      "subtitle": "Bring us a business problem and we engineer the system. Bring us an idea and the community helps you build it.",
+      "enterprise": {
+        "tag": "For companies",
+        "title": "Enterprise software solutions",
+        "description": "Systems with independent IP, built to stay stable under real operational load and to grow with your business.",
+        "points": {
+          "one": "Custom web platforms built with Laravel and React",
+          "two": "ERP rollouts and integrations on Odoo and ERPNext",
+          "three": "Dashboards and automation that cut manual work"
+        },
+        "cta": "View our solutions",
+        "imageAlt": "Our consultants reviewing a business dashboard with a client"
+      },
+      "community": {
+        "tag": "For developers and founders",
+        "title": "{brand} community",
+        "description": "A platform where developers, designers and founders share ideas, find collaborators and grow their careers.",
+        "points": {
+          "one": "An ideas bank with projects ready to build",
+          "two": "A jobs forum for full-time and freelance roles",
+          "three": "Direct access to our engineers"
+        },
+        "cta": "Visit the community",
+        "imageAlt": "Developers planning an app together at a community meetup"
+      }
+    },
+    "services": {
+      "eyebrow": "Solutions",
+      "title": "Software built around how your business runs",
+      "subtitle": "Seven service lines covering the full path from interface design to data, delivered by one team.",
+      "feature": {
+        "title": "From first sketch to launch day",
+        "description": "We design, build and ship web and mobile products, then stay on to support and improve them.",
+        "cta": "Request a quote",
+        "imageAlt": "A mobile delivery tracking app next to a web admin dashboard"
+      },
+      "cardCta": "Discuss this service",
+      "items": {
+        "customSoftware": {
+          "title": "Custom enterprise software",
+          "description": "Systems with independent IP and secure infrastructure, built for operational stability and disciplined digital growth."
+        },
+        "webPlatforms": {
+          "title": "Web systems and platforms",
+          "description": "Integrated web and cloud platforms on Laravel and React, with flexible admin dashboards that hold up under high traffic."
+        },
+        "mobileApps": {
+          "title": "Mobile app engineering",
+          "description": "iOS and Android apps in Flutter with full offline mode, precise geofencing and real-time data sync."
+        },
+        "erpSystems": {
+          "title": "Custom ERP systems",
+          "description": "Odoo and ERPNext tailored to connect accounting, inventory, supply chain and HR in one environment."
+        },
+        "aiAutomation": {
+          "title": "AI and process automation",
+          "description": "AI models and automation added to your existing workflows to speed up routine tasks and reduce data-entry errors."
+        },
+        "uiux": {
+          "title": "UI/UX product design",
+          "description": "Interfaces and user journeys designed in Figma with interactive prototypes, so your team actually adopts the system."
+        },
+        "dataBi": {
+          "title": "Data analytics and BI",
+          "description": "Live BI dashboards that turn field and operational data into KPIs your management can act on."
+        }
+      }
+    },
+    "community": {
+      "eyebrow": "Community",
+      "title": "A collaborative environment that moves you forward",
+      "description": "Join engineers and builders who share what they know, take on ambitious projects together and grow through direct work with professionals.",
+      "points": {
+        "one": "Inspiring collaborative projects",
+        "two": "Advanced technical discussions",
+        "three": "A strong professional network"
+      },
+      "imageAlt": "A senior engineer mentoring a junior developer at a laptop",
+      "imageBadge": "Mentoring from our engineers",
+      "cta": "Join the community",
+      "features": {
+        "projects": {
+          "title": "Collaborative projects",
+          "description": "Contribute to real technical projects and trade ideas with strong developers in your field."
+        },
+        "experts": {
+          "title": "Connect with experts",
+          "description": "Build professional relationships with our engineers and sharpen your ideas with their feedback."
+        },
+        "mentoring": {
+          "title": "Technical mentoring",
+          "description": "Get direct guidance to grow your engineering and leadership skills."
+        }
+      }
+    },
+    "ideas": {
+      "eyebrow": "Ideas bank",
+      "title": "Latest ideas published by the community",
+      "subtitle": "Technical ideas ready to build. Browse freely, then sign in to comment, save or join a team.",
+      "viewAll": "View all ideas",
+      "items": {
+        "qrExchange": {
+          "category": "Web development",
+          "title": "QR Exchange: B2B order and invoice router",
+          "summary": "Routes sales orders and purchase invoices between different POS and ERP systems, removing manual catalog matching."
+        },
+        "ventureStudio": {
+          "category": "Incubators and accelerators",
+          "title": "Venture Studio: digital co-building engine",
+          "summary": "A studio-style incubator that brings stakeholders together and provides ready-made software infrastructure for new ventures."
+        },
+        "voiceAgent": {
+          "category": "Artificial intelligence",
+          "title": "Sawtak: voice AI agent for COD confirmation",
+          "summary": "Automated voice assistants that call customers to confirm cash-on-delivery orders, trained on Arabic dialects to cut return rates."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to build your next system or product?",
+      "subtitle": "Talk to our team about a project, or join the community for free and start sharing ideas.",
+      "primary": "Join the community for free",
+      "secondary": "Contact us"
+    }
+  },
+  "ideaCard": {
+    "viewDetails": "View details",
+    "like": "Like",
+    "comment": "Comment",
+    "save": "Save",
+    "techStack": "Tech stack",
+    "gate": {
+      "details": "Full idea details are available to community members.",
+      "like": "Sign in to like ideas.",
+      "comment": "Sign in to join the discussion.",
+      "save": "Sign in to save ideas to your favorites."
+    }
+  },
+  "gate": {
+    "title": "Sign in to continue",
+    "defaultMessage": "Browsing is open to everyone. Commenting, contacting members, saving or publishing an idea needs a free account.",
+    "join": "Join the community",
+    "login": "Sign in",
+    "continueAsVisitor": "Continue as a visitor",
+    "close": "Close"
+  },
+  "footer": {
+    "tagline": "Software solutions for companies, and a community for the people who build them.",
+    "explore": "Explore",
+    "communityTitle": "Community",
+    "contactTitle": "Contact",
+    "ideas": "Ideas bank",
+    "jobs": "Jobs forum",
+    "aboutPlatform": "About the platform",
+    "commercialRegister": "Commercial register",
+    "rights": "© {year} {brand}. All rights reserved.",
+    "newsletter": {
+      "title": "Get community updates",
+      "description": "New ideas, open roles and events, once a month.",
+      "label": "Email address",
+      "placeholder": "name@company.com",
+      "submit": "Subscribe",
+      "submitting": "Subscribing…",
+      "success": "Subscribed. You'll get the next community update.",
+      "error": "We couldn't subscribe this email right now. Try again in a few minutes."
+    }
+  },
+  "validation": {
+    "emailRequired": "Enter your email address.",
+    "emailInvalid": "Enter a valid email, like name@company.com."
+  },
+  "whatsapp": {
+    "label": "Chat with us on WhatsApp"
+  },
+  "notFound": {
+    "title": "This page doesn't exist",
+    "description": "The link may be outdated or the page may have moved. Head back to the home page or get in touch with us.",
+    "home": "Back to home",
+    "contact": "Contact us"
+  }
+}

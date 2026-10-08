@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design tokens (light theme).
+ * Values extracted from community.elitemsr.com (the only source site exposing its CSS):
+ *   primary   #1A365D  (btn-primary, section titles)
+ *   primary-dark #102A43 (btn-primary:hover)
+ *   primary-deep #0A192F (hero gradient start)
+ *   secondary #F6993F  (btn-secondary, "Community" wordmark)
+ *   secondary-dark #DD6B20 (btn-secondary:hover)
+ *   accent    #0EA5E9  (sky "Contact us" button)
+ *   surface-alt #F7FAFC, surface-muted #EDF2F7, surface-info #EBF4FF
+ *   body #2D3748, content #4A5568, edge #E2E8F0
+ * Stored as RGB channels so Tailwind opacity modifiers (bg-primary/10) work.
+ */
+@layer base {
+  :root {
+    --primary: 26 54 93;
+    --primary-dark: 16 42 67;
+    --primary-deep: 10 25 47;
+    --secondary: 246 153 63;
+    --secondary-dark: 221 107 32;
+    --accent: 14 165 233;
+
+    --surface: 255 255 255;
+    --surface-alt: 247 250 252;
+    --surface-muted: 237 242 247;
+    --surface-info: 235 244 255;
+
+    --body: 45 55 72;
+    --content: 74 85 104;
+    --edge: 226 232 240;
+
+    --success: 22 163 74;
+    --warning: 217 119 6;
+    --danger: 220 38 38;
+
+    --whatsapp: 37 211 102;
+    --whatsapp-dark: 32 189 90;
+
+    --header-height: 5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-surface text-body antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Visible keyboard focus on every interactive element */
+  :focus-visible {
+    @apply outline-none ring-2 ring-secondary ring-offset-2 ring-offset-surface;
+  }
+
+  ::selection {
+    @apply bg-secondary/25 text-primary-deep;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-alt;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-edge;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-content/40;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer utilities {
+  /* Subtle dotted grid used behind light sections */
+  .bg-dot-grid {
+    background-image: radial-gradient(rgb(var(--primary) / 0.08) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}

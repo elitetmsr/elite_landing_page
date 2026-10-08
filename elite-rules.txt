@@ -1,0 +1,326 @@
+# Elite Tech Revamp: Project Rules & Reference
+
+> Single source of truth for the owner and for Claude Code.
+> Read this file fully before writing or changing any code. If a rule here conflicts with a request, say so and ask before proceeding.
+
+**Keywords:** MUST / NEVER = hard rule. SHOULD = default, deviate only with a stated reason. **TBD** = not confirmed yet. Never invent a value for a TBD item, stop and ask.
+
+---
+
+## 1. Project context
+
+| Item | Value |
+|---|---|
+| Client | **Elite Tech**, إيليت تك لتقنية المعلومات (IT company, Maadi, Cairo) |
+| Source sites | `https://elitemsr.com/` (main corporate site) and `https://community.elitemsr.com/` (community) |
+| Goal | Revamp both into **one new Next.js project**: main site + community section |
+| Current stack of source | Odoo website (footer: "Powered by Odoo"). Bilingual Arabic / English |
+| Architecture reference | Imdad website (Next.js 15 App Router). Sections 3 to 6 are adapted from it |
+
+**Assumptions (confirm or correct):**
+1. One codebase, with the community as its own route group (`(community)`), not a second repo.
+2. Arabic is the default locale, English is secondary. The source site lists Arabic first.
+3. Content starts as static data in the repo (like Imdad's `data/` folders). Odoo integration is a later phase.
+
+### Facts taken from the current site (verify before launch)
+
+- **Address:** 9/H/5 El-Laselky Division, Ahmed Abdel Azim St., Off Main El-Nasr St., Maadi, Cairo
+- **Commercial Register:** 290259
+- **Phones:** +201131340647, +201034360644
+- **Email:** info@elitemsr.com
+- **Main navigation (AR / EN):**
+  1. الحلول / Solutions
+  2. القدرات التقنية / Tech Platforms
+  3. مشاريعنا و منتجاتنا / Projects & Products
+  4. التوظيف / Careers
+  5. من نحن / About Us
+  6. مجتمع إيليت تك / Community
+  7. اتصل بنا / Contact Us (primary CTA)
+- **Naming inconsistency on the old site:** "إيليت تك" and "إليت تك" are both used. Pick **one** official Arabic spelling (TBD, owner decides) and use it only through `lib/constants.ts`.
+
+---
+
+## 2. Brand & identity
+
+**Status: tokens are TBD.** The source sites block automated access, so no colors, fonts, or logo files were extracted yet. They must come from the owner (screenshots, logo files, or a DevTools export). See section 11.
+
+### 2.1 Color tokens (roles are fixed, values are TBD)
+
+| Token | Role | Value |
+|---|---|---|
+| `primary` | Main brand color: buttons, links, key headings | TBD |
+| `primary-dark` | Hover / pressed state of primary | TBD |
+| `accent` | Highlight used sparingly, one per screen | TBD |
+| `secondary` | Supporting brand color | TBD |
+| `surface` | Page and card backgrounds | TBD |
+| `surface-alt` | Alternate section background | TBD |
+| `body` | Default page text | TBD |
+| `content` | Muted / secondary text | TBD |
+| `edge` | Borders and dividers | TBD |
+| `success` / `warning` / `danger` | Form and status feedback | TBD |
+
+Gradients (`gradient-hero`, `gradient-cta`, `gradient-dark`) are TBD and only get defined if the brand actually uses gradients.
+
+### 2.2 Typography
+
+| Role | Font | Status |
+|---|---|---|
+| Arabic (all text) | IBM Plex Sans Arabic, `--font-ibm-arabic` | Default from Imdad, confirm against brand |
+| Latin body | Inter, `--font-inter` | Default, TBD |
+| Headings | Outfit, `--font-outfit` | Default, TBD |
+
+- Fonts load only through `next/font/google`. NEVER use `<link>` tags or CSS `@import`.
+- Arabic and Latin headings MUST feel like one family visually (weight and size matched). Test both.
+
+### 2.3 Logo & assets
+
+- Files go in `public/images/` as `logo.svg` (preferred) or `logo.png`, plus `logo-light.*` for dark backgrounds. Status: TBD.
+- Both an Arabic and an English lockup are needed if the logo contains text.
+
+### 2.4 Voice & copy
+
+- Arabic copy: Modern Standard Arabic, simple and direct. No slang in UI labels.
+- English copy: sentence case, plain verbs, no filler.
+- CTAs say exactly what happens: "Request a quote", "Join the community". NEVER "Submit" or "Click here".
+- An action keeps one name through the whole flow (button "Send message" leads to toast "Message sent").
+- Errors say what went wrong and how to fix it. They never apologize and are never vague.
+- All user-facing strings live in `messages/ar.json` and `messages/en.json`. NEVER hardcode text in components.
+
+---
+
+## 3. Tech stack (locked)
+
+Do not upgrade major versions or add libraries without asking.
+
+| Category | Tool | Version |
+|---|---|---|
+| Framework | Next.js (App Router, Turbopack) | `^15.5.9` |
+| UI | React | `^19.2.3` |
+| Language | TypeScript (strict) | `^5` |
+| Styling | TailwindCSS (**v3, do not move to v4**) | `^3.4.17` |
+| Class merging | clsx + tailwind-merge via `cn()` | `^2.1.1` / `^3.5.0` |
+| Animation | Framer Motion | `^12.33.0` |
+| State | Redux Toolkit + React Redux | `^2.9.0` / `^9.2.0` |
+| HTTP | Axios | `^1.12.2` |
+| Forms | React Hook Form + Zod + @hookform/resolvers | `^7.68.0` / `^4.1.11` / `^5.2.2` |
+| i18n | next-intl | `^4.5.8` |
+| UI primitives | @headlessui/react, @radix-ui/react-accordion | `^2.2.9` / `^1.2.12` |
+| Icons | Lucide React (primary) | `^0.555.0` |
+| Maps | Leaflet + React Leaflet | `^1.9.4` / `^5.0.0` |
+| Charts | Recharts | `^3.5.1` |
+| Toasts | React Hot Toast | `^2.6.0` |
+| Cookies | cookies-next | `^6.1.1` |
+| Lint | ESLint 9 flat config + eslint-config-next | `^9` / `^15.5.7` |
+
+**Icons:** Lucide only. Do not add React Icons or Heroicons in the new project unless a needed icon is missing from Lucide.
+**Dropped from Imdad unless needed:** `react-time-picker`, `leaflet-draw`, `react-leaflet-draw`, `uuid`, `redux-logger` (dev only if kept).
+
+### Scripts
+
+| Command | Purpose |
+|---|---|
+| `npm run dev` | Dev server on port 4000 with Turbopack |
+| `npm run build` | Production build |
+| `npm run start` | Serve production build |
+| `npm run lint` | ESLint |
+
+---
+
+## 4. Project structure
+
+```
+elite-tech/
+├── app/
+│   ├── globals.css                 # Design tokens as CSS custom properties
+│   ├── config/environment.ts       # Runtime env (API URL, isDev, logLevel)
+│   ├── lib/                        # API types + helpers (ExtractValidationErrors.ts)
+│   ├── services/                   # ApiService.ts, axiosBaseQuery.ts, logger.ts
+│   ├── store/index.ts              # Redux store
+│   └── [locale]/
+│       ├── layout.tsx              # Root layout: fonts, dir, metadata, SEO, Providers
+│       ├── providers/providers.tsx # Redux Provider + NextIntlClientProvider
+│       ├── (pages)/                # Main site: shared Header/Footer layout
+│       │   ├── layout.tsx
+│       │   ├── home/
+│       │   ├── solutions/
+│       │   ├── tech-platforms/
+│       │   ├── projects/ (+ [id]/)
+│       │   ├── careers/
+│       │   ├── about/
+│       │   └── contact/
+│       └── (community)/            # Community section (own layout if needed)
+├── components/shared/              # Header, Footer, MobileMenu, PageHeader, SectionHeading,
+│                                   # buttons, InputField, TextArea, LocaleSwitcher, ...
+├── i18n/                           # routing.ts, request.ts, navigation.ts
+├── lib/                            # animations.ts, constants.ts, utils.ts (cn)
+├── messages/                       # ar.json, en.json
+├── types/
+├── public/images/
+├── middleware.ts
+├── next.config.ts
+├── tailwind.config.js
+├── tsconfig.json                   # strict, alias @/*
+├── eslint.config.mjs
+└── postcss.config.js
+```
+
+Page and section names above are proposals based on the current nav. Confirm before creating routes.
+
+### Placement rules
+
+- **MUST** co-locate page-specific components in `<page>/components/` and page data in `<page>/data/`.
+- **MUST** put anything used by 2+ pages in `components/shared/`.
+- **MUST** keep company data, nav links, social links, and contact info in `lib/constants.ts` only.
+- **NEVER** import from one page's `components/` into another page. Promote it to `shared` first.
+- One component per file. File name = component name in PascalCase. Route folders are kebab-case.
+
+---
+
+## 5. Architecture rules
+
+### 5.1 Routing
+- App Router with route groups. Dynamic segments: `[locale]` and `[id]`.
+- `middleware.ts` enforces the locale prefix and redirects `/` to `/{defaultLocale}/home`.
+- Pages are **Server Components by default**. Add `"use client"` only when the file needs state, effects, browser APIs, or Framer Motion. Keep client boundaries as low in the tree as possible.
+
+### 5.2 Internationalization and RTL (this is the biggest change from Imdad)
+- `i18n/routing.ts` declares `locales: ["ar", "en"]`, default `ar` (assumption 2).
+- `<html lang dir>` is set in `app/[locale]/layout.tsx`: `dir="rtl"` for `ar`, `dir="ltr"` for `en`.
+- **MUST** use logical Tailwind utilities so layouts mirror automatically: `ms-*`, `me-*`, `ps-*`, `pe-*`, `start-*`, `end-*`, `text-start`, `text-end`, `border-s`, `border-e`, `rounded-s-*`, `rounded-e-*`.
+- **NEVER** use `ml-*`, `mr-*`, `pl-*`, `pr-*`, `left-*`, `right-*`, `text-left`, `text-right` for layout.
+- Directional icons (arrows, chevrons) MUST flip in RTL (`rtl:-scale-x-100`).
+- Use `Link`, `redirect`, `usePathname` from `i18n/navigation.ts`, never from `next/link` or `next/navigation` directly.
+- Every key exists in both `ar.json` and `en.json`. Missing keys are a build-blocking bug.
+- Numbers, phone numbers, and emails inside Arabic text MUST render correctly (wrap in `dir="ltr"` spans where needed).
+- Every new page MUST be visually checked in **both** languages before it counts as done.
+
+### 5.3 Styling system
+- Colors, radii, shadows, and spacing come from CSS custom properties in `globals.css`, mapped in `tailwind.config.js`.
+- **NEVER** write raw hex or `rgb()` values in components. Use tokens (`bg-primary`, `text-body`, `border-edge`).
+- If a token is TBD, stop and ask. Do not pick a color.
+- Merge classes with `cn()` from `lib/utils.ts`. Never build class strings by hand concatenation.
+- Mobile-first. Breakpoints: base, `sm`, `md`, `lg`, `xl`. Test at 360px, 768px, 1280px.
+- Use one consistent border-radius scale tied to hierarchy (not one radius for everything).
+
+### 5.4 Design principles (so the revamp does not look templated)
+- Build from the brand and the real content. Do not fall back on a generic SaaS look: identical rounded cards, soft grey shadows under everything, gradient washes as decoration.
+- Spend boldness in **one** place per page (hero or one key section). Keep everything around it quiet.
+- Body text line length under 80 characters. Arabic body text needs generous line-height.
+- Structural devices (numbering, eyebrows, dividers) only when they carry meaning. Number markers only for real sequences.
+- **NEVER** use ALL-CAPS tracked labels above every heading, a "→" on every button, or accent-colored single words in headlines as a habit.
+- Use real or plausible content, not lorem ipsum. Copy follows section 2.4.
+
+### 5.5 Animation
+- Presets live in `lib/animations.ts` (`fadeInUp`, `staggerContainer`, `scaleIn`, `heroTextReveal`, ...). Components import presets, they do not define their own variants inline.
+- Use motion sparingly: one orchestrated hero moment plus meaningful interactions (menus, accordions, modals). **Not** a fade-up on every section and hover lift on every card.
+- Counters and scroll reveals trigger once (`viewport={{ once: true }}`).
+- **MUST** respect `prefers-reduced-motion`.
+- Animate `transform` and `opacity` only. Never animate layout properties.
+- In RTL, horizontal slide variants MUST mirror direction.
+
+### 5.6 State and API
+- Redux store via `configureStore`. Only keep truly global state there (UI preferences, auth if added). Local UI state stays in components.
+- All HTTP goes through the singleton `ApiService.ts` (Axios). No ad-hoc `fetch` or new Axios instances in components.
+- `axiosBaseQuery.ts` is the adapter if RTK Query is used.
+- Interceptors inject the auth token and `lang` header. Any `localStorage` access MUST be guarded with `typeof window !== "undefined"` (SSR safety).
+- API base URL comes from `app/config/environment.ts`, which reads env vars. Never hardcode URLs.
+- Errors from the API are normalized by `ExtractValidationErrors.ts` and shown in the form, not swallowed.
+
+### 5.7 Forms
+- React Hook Form + Zod schema + `@hookform/resolvers/zod`. The schema is the single source of validation.
+- Validation messages come from `messages/*.json`, not from Zod defaults.
+- Use shared `InputField` and `TextArea`. Do not restyle inputs per page.
+- Every input has a visible label, an error state, and a disabled/submitting state.
+- Success and failure feedback use React Hot Toast with the wording rules from section 2.4.
+
+---
+
+## 6. Code quality rules
+
+- TypeScript **strict**. No `any`, no `@ts-ignore` without a comment explaining why.
+- Props are typed with an explicit `interface` or `type`. Shared types live in `types/`.
+- No unused imports or dead code. `npm run lint` and `npm run build` MUST pass with zero errors before any task is reported done.
+- Do not leave `console.log`. Use `app/services/logger.ts`.
+- Static datasets (projects, partners, solutions) are typed arrays in `data/`. Components receive data via props or imports from `data/`, never inline literals inside JSX.
+- Use `next/image` for all images with explicit `width`/`height` or `fill` + `sizes`, and meaningful `alt` text in the active locale. Use `next/font` for fonts. Use `next/link` (through `i18n/navigation`) for internal links.
+- Do not put secrets in the repo. Env vars that reach the browser use the `NEXT_PUBLIC_` prefix, nothing else does.
+
+### Accessibility (quality floor)
+- Visible keyboard focus on every interactive element.
+- Color contrast meets WCAG AA for both languages.
+- Semantic HTML: one `h1` per page, ordered headings, `nav`, `main`, `footer` landmarks.
+- Menus, modals, and accordions use Headless UI / Radix so keyboard and screen-reader behavior is correct.
+- Icon-only buttons have `aria-label`.
+
+### Performance and SEO
+- Metadata per page via `generateMetadata`, localized (title, description, Open Graph, `alternates.languages`).
+- Hero video: compressed, `muted playsInline`, with a poster image and a mobile fallback.
+- Leaflet maps load with `next/dynamic` and `ssr: false`.
+- Lazy-load below-the-fold sections and heavy libraries (Recharts, Leaflet).
+
+---
+
+## 7. Component conventions
+
+| Component | Rule |
+|---|---|
+| `Header` / `MobileMenu` | Driven by `NAV_LINKS` in `lib/constants.ts`. Locale switcher included. "Contact Us" is the primary CTA |
+| `Footer` | Contact info, nav, and socials all from `lib/constants.ts` |
+| `PageHeader` | Reusable page hero banner with localized title + breadcrumb |
+| `SectionHeading` | The only way to render section titles |
+| `buttons.tsx` | `Button` variants (primary, secondary, outline, ghost). No one-off button styles |
+| `WhatsAppButton` | Floating button, uses the phone number from constants, positioned with `end-*` |
+
+---
+
+## 8. Do / Don't summary
+
+**Do**
+- Read the relevant existing files before editing and follow their patterns.
+- Reuse shared components and tokens before creating new ones.
+- Check both languages and 3 screen sizes after every UI change.
+- Keep changes small and scoped to the task.
+- State assumptions in one line when something is ambiguous, then proceed.
+
+**Don't**
+- Don't add a dependency, change a major version, or restructure folders without asking.
+- Don't hardcode strings, colors, URLs, phone numbers, or nav links.
+- Don't use physical (left/right) Tailwind utilities for layout.
+- Don't invent brand values (colors, fonts, copy claims, stats, client names). Mark them TBD.
+- Don't copy the old site's text or images verbatim without the owner confirming they are final. Rewrite and improve.
+- Don't leave a task with failing lint or build.
+
+---
+
+## 9. Workflow for Claude Code
+
+1. **Plan:** for any new page, list the sections, components, data shape, and message keys in a few lines before coding.
+2. **Build:** tokens first, then shared components, then page sections.
+3. **Verify:** `npm run lint`, `npm run build`, then check `/ar` and `/en` at 360 / 768 / 1280.
+4. **Report:** a short summary: files changed, assumptions made, anything left TBD.
+
+---
+
+## 10. Definition of done (per page)
+
+- [ ] Matches brand tokens, no raw colors
+- [ ] All text from `messages/ar.json` and `messages/en.json`
+- [ ] RTL and LTR both look correct, no physical-direction utilities
+- [ ] Responsive at 360 / 768 / 1280
+- [ ] Keyboard navigable, focus visible, alt text set
+- [ ] Localized metadata set
+- [ ] `npm run lint` and `npm run build` pass
+
+---
+
+## 11. Open items (owner to provide)
+
+| # | Item | Needed for |
+|---|---|---|
+| 1 | Brand colors (hex) for every token in section 2.1 | `globals.css`, Tailwind config |
+| 2 | Logo files (SVG preferred), light and dark versions | Header, Footer, favicon |
+| 3 | Brand fonts if different from the defaults in 2.2 | `next/font` setup |
+| 4 | Official Arabic spelling: إيليت تك or إليت تك | Constants, copy |
+| 5 | Confirm assumptions 1 to 3 in section 1 | Routing, i18n, data source |
+| 6 | Purpose and sections of the community site | `(community)` route group |
+| 7 | Final contact details, social links, partner/client logos | `lib/constants.ts`, `public/images/` |
