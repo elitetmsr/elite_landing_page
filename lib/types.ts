@@ -4,3 +4,8 @@ export interface ApiResponse<T = unknown> {
   data?: T;
   errors?: string[];
 }
+
+export interface LocalizedType {
+  en?: string;
+  ar?: string;
+}

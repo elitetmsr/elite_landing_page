@@ -21,19 +21,19 @@ export function Footer() {
 
   const products = [
     ...PRODUCTS_NAV_ITEMS.map((item) => ({
-      label: tNav(`productsItems.${item.key}`),
+      label: tNav(`productsItems.${item.key}` as Parameters<typeof tNav>[0]),
       href: item.href,
     })),
     { label: tNav("storePricing"), href: STORE_PRICING_HREF },
   ];
 
   const solutions = SOLUTIONS_NAV_ITEMS.map((item) => ({
-    label: tNav(`solutionsItems.${item.key}`),
+    label: tNav(`solutionsItems.${item.key}` as Parameters<typeof tNav>[0]),
     href: item.href,
   }));
 
   const company = COMPANY_NAV_ITEMS.map((item) => ({
-    label: tNav(item.key),
+    label: tNav(item.key as Parameters<typeof tNav>[0]),
     href: item.href,
     external: "external" in item ? item.external : undefined,
   }));

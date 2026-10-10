@@ -51,7 +51,7 @@ export const API_ENDPOINTS = {
 export interface NavLinkItem {
   id: string;
   /** Key inside the "nav" messages namespace. */
-  labelKey: "solutions" | "techPlatforms" | "projects" | "careers" | "about" | "community";
+  labelKey: "solutions" | "techPlatforms" | "projects" | "jobs" | "about" | "community";
   href: string;
 }
 
@@ -59,7 +59,7 @@ export const NAV_LINKS: NavLinkItem[] = [
   { id: "solutions", labelKey: "solutions", href: "/solutions" },
   { id: "tech-platforms", labelKey: "techPlatforms", href: "/tech-platforms" },
   { id: "projects", labelKey: "projects", href: "/projects" },
-  { id: "careers", labelKey: "careers", href: "/careers" },
+  { id: "jobs", labelKey: "jobs", href: "/jobs" },
   { id: "about", labelKey: "about", href: "/about" },
   { id: "community", labelKey: "community", href: "/community" },
 ];
@@ -84,7 +84,7 @@ export const STORE_PRICING_HREF = "/store-pricing";
 export const COMPANY_NAV_ITEMS = [
   { key: "about", href: "/about" },
   { key: "community", href: COMMUNITY_URLS.home, external: true },
-  { key: "careers", href: COMMUNITY_URLS.jobs, external: true },
+  { key: "jobs", href: "/jobs" },
   { key: "contact", href: "/book-session" },
 ] as const;
 

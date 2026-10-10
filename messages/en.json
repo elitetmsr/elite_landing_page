@@ -20,6 +20,7 @@
     "techPlatforms": "Tech platforms",
     "projects": "Projects & products",
     "careers": "Careers",
+    "jobs": "Careers",
     "about": "About Elite Tech",
     "community": "Community",
     "contact": "Contact us",
@@ -332,5 +333,65 @@
     "description": "The link may be outdated or the page may have moved. Head back to the home page or get in touch with us.",
     "home": "Back to home",
     "contact": "Contact us"
+  },
+  "jobs": {
+    "meta": {
+      "title": "Careers & Job Opportunities | {brand}",
+      "description": "Join the Elite Tech team and build real enterprise software used across Egypt & Saudi Arabia."
+    },
+    "badge": "Careers · 1 open position",
+    "heroTitle": "Build products real people actually use.",
+    "heroSubtitle": "Small team with big responsibilities. Work on PolyLine and live client projects in Saudi Arabia, seeing direct field impact.",
+    "howWeWork": {
+      "title": "How We Work",
+      "card1": {
+        "title": "Remote Evaluation Period",
+        "subtitle": "Three months full-time remote prior to joining the team."
+      },
+      "card2": {
+        "title": "Then Full-Time In-Office",
+        "subtitle": "At our Maadi headquarters with an official contract & permanent job."
+      },
+      "card3": {
+        "title": "Real Enterprise Products",
+        "subtitle": "Work on PolyLine and live enterprise platforms in Saudi Arabia."
+      },
+      "card4": {
+        "title": "Modern Tech Stack",
+        "subtitle": "Next.js, React, Flutter & Laravel"
+      },
+      "maherBadge": "Ask Maher · AI Assistant, replies instantly"
+    },
+    "openPositions": {
+      "title": "Available Openings",
+      "categories": {
+        "all": "All Departments",
+        "engineering": "Engineering",
+        "product": "Product Management",
+        "design": "UI/UX & Design",
+        "sales": "Sales & Growth",
+        "qa": "Software QA"
+      },
+      "applyNow": "Apply Now",
+      "noJobsFound": "No open positions found in this department."
+    },
+    "applyModal": {
+      "title": "Apply for Position",
+      "subtitle": "{jobTitle}",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "example@domain.com",
+      "phone": "Phone / WhatsApp Number",
+      "phonePlaceholder": "+201000000000",
+      "cvLink": "CV / LinkedIn Profile Link",
+      "cvLinkPlaceholder": "https://linkedin.com/in/... or Google Drive link",
+      "coverNote": "Brief summary of your experience",
+      "coverNotePlaceholder": "Tell us briefly about projects you've built...",
+      "submit": "Submit Application",
+      "submitting": "Submitting...",
+      "orApplyWhatsapp": "Or apply directly via WhatsApp",
+      "successToast": "Application received successfully! We will contact you shortly."
+    }
   }
 }

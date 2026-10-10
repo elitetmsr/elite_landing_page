@@ -222,15 +222,18 @@ export function HeaderMobileDrawer({
               {t("storePricing")}
             </Link>
 
-            <a
-              href={COMMUNITY_URLS.jobs}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/jobs"
               onClick={onClose}
-              className="block p-3 rounded-xl font-medium text-body hover:bg-surface-alt hover:translate-x-1 rtl:hover:-translate-x-1 transition-all outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0"
+              className={cn(
+                "block p-3 rounded-xl transition-all outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0",
+                isActive("/jobs")
+                  ? "bg-secondary/10 text-secondary font-bold"
+                  : "font-medium text-body hover:bg-surface-alt hover:translate-x-1 rtl:hover:-translate-x-1"
+              )}
             >
-              {t("careers")}
-            </a>
+              {t("jobs")}
+            </Link>
 
             <Link
               href="/about"

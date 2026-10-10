@@ -26,14 +26,12 @@ export function HeaderTopBar({ onToggleLanguage }: HeaderTopBarProps) {
             {t("community")}
           </a>
           <span className="text-edge/30">|</span>
-          <a
-            href={COMMUNITY_URLS.jobs}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/jobs"
             className="hover:text-secondary transition-all duration-200 hover:scale-105 inline-block"
           >
-            {t("careers")}
-          </a>
+            {t("jobs")}
+          </Link>
           <span className="text-edge/30">|</span>
           <Link href="/book-session" className="hover:text-secondary transition-all duration-200 hover:scale-105 inline-block">
             {t("contact")}

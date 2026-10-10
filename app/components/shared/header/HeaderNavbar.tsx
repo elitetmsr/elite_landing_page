@@ -3,7 +3,6 @@
 import { useTranslations } from "next-intl";
 import { FiArrowLeft, FiArrowRight, FiMenu } from "react-icons/fi";
 import { Link, usePathname } from "@/i18n/navigation";
-import { COMMUNITY_URLS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Logo } from "../Logo";
 import { HeaderNavDropdown, type HeaderNavDropdownItem } from "./HeaderNavDropdown";
@@ -89,14 +88,17 @@ export function HeaderNavbar({ isRtl, isScrolled = false, solutions, products, o
             {t("storePricing")}
           </Link>
 
-          <a
-            href={COMMUNITY_URLS.jobs}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-3.5 py-2 text-sm font-semibold text-body hover:text-secondary transition-all duration-200 hover:scale-105 rounded-xl outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 select-none"
+          <Link
+            href="/jobs"
+            className={cn(
+              "relative px-3.5 py-2 text-sm font-semibold transition-all duration-200 rounded-xl outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 select-none",
+              isActive("/jobs")
+                ? "text-secondary font-bold after:absolute after:bottom-0 after:inset-x-2 after:h-0.5 after:bg-secondary after:rounded-full"
+                : "text-body hover:text-secondary hover:scale-105"
+            )}
           >
-            {t("careers")}
-          </a>
+            {t("jobs")}
+          </Link>
 
           <Link
             href="/about"
