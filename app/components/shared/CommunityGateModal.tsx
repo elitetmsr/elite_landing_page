@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from "@headlessui/react";
-import { LogIn, Sparkles, UserPlus, X } from "lucide-react";
+import { FiLogIn, FiStar, FiUserPlus, FiX } from "react-icons/fi";
 import { COMMUNITY_URLS } from "@/lib/constants";
 import { Button } from "./Button";
 import { LinkButton } from "./LinkButton";
@@ -37,11 +37,11 @@ export function CommunityGateModal({ isOpen, onClose, message }: CommunityGateMo
             aria-label={t("close")}
             className="absolute end-4 top-4 grid size-9 place-items-center rounded-full text-content transition-colors hover:bg-surface-muted hover:text-primary"
           >
-            <X className="size-5" aria-hidden="true" />
+            <FiX className="size-5" aria-hidden="true" />
           </button>
 
           <div className="mb-4 grid size-12 place-items-center rounded-2xl bg-secondary/15 text-secondary-dark">
-            <Sparkles className="size-6" aria-hidden="true" />
+            <FiStar className="size-6 text-secondary animate-pulse" aria-hidden="true" />
           </div>
 
           <DialogTitle className="text-xl font-bold text-primary">{t("title")}</DialogTitle>
@@ -53,7 +53,7 @@ export function CommunityGateModal({ isOpen, onClose, message }: CommunityGateMo
               external
               variant="secondary"
               fullWidth
-              icon={<UserPlus className="size-4" />}
+              icon={<FiUserPlus className="size-4" />}
               iconPosition="start"
             >
               {t("join")}
@@ -63,7 +63,7 @@ export function CommunityGateModal({ isOpen, onClose, message }: CommunityGateMo
               external
               variant="outline"
               fullWidth
-              icon={<LogIn className="size-4 rtl:-scale-x-100" />}
+              icon={<FiLogIn className="size-4 rtl:-scale-x-100" />}
               iconPosition="start"
             >
               {t("login")}

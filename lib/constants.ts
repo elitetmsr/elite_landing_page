@@ -19,7 +19,7 @@ export const COMPANY_INFO = {
     en: "9/H/5 El-Laselky Division, Ahmed Abdel Azim St., Off Main El-Nasr St., Maadi, Cairo",
   } satisfies LocalizedText,
   commercialRegister: "290259",
-  phones: ["+201131340647", "+201034360644"],
+  phones: ["+20 103 436 0644", "+20 113 134 0647"],
   whatsappPhone: "201131340647",
   email: "info@elitemsr.com",
 } as const;
@@ -63,6 +63,42 @@ export const NAV_LINKS: NavLinkItem[] = [
   { id: "about", labelKey: "about", href: "/about" },
   { id: "community", labelKey: "community", href: "/community" },
 ];
+
+export const SOLUTIONS_NAV_ITEMS = [
+  { key: "consulting", href: "/solutions/consulting" },
+  { key: "web", href: "/solutions/web-apps" },
+  { key: "mobile", href: "/solutions/mobile-apps" },
+  { key: "erp", href: "/solutions/erp-systems" },
+  { key: "ai", href: "/solutions/ai-automation" },
+] as const;
+
+export const PRODUCTS_NAV_ITEMS = [
+  { key: "polyline", href: "/products/polyline" },
+  { key: "bareeq", href: "/products/bareeq-x" },
+  { key: "amanCar", href: "/products/aman-car" },
+  { key: "maher", href: "/products/maher-ai" },
+] as const;
+
+export const STORE_PRICING_HREF = "/store-pricing";
+
+export const COMPANY_NAV_ITEMS = [
+  { key: "about", href: "/about" },
+  { key: "community", href: COMMUNITY_URLS.home, external: true },
+  { key: "careers", href: COMMUNITY_URLS.jobs, external: true },
+  { key: "contact", href: "/book-session" },
+] as const;
+
+export const LEGAL_NAV_ITEMS = [
+  { key: "privacy", href: "/privacy" },
+  { key: "terms", href: "/terms" },
+] as const;
+
+export const SOCIAL_LINKS = [
+  { label: "Facebook", href: "https://facebook.com/elitemsr", external: true },
+  { label: "LinkedIn", href: "https://linkedin.com/company/elitemsr", external: true },
+  { label: "Instagram", href: "https://instagram.com/elitemsr", external: true },
+  { label: "TikTok", href: "https://tiktok.com/@elitemsr", external: true },
+] as const;
 
 export const CONTACT_HREF = "/contact";
 

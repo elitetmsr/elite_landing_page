@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import toast from "react-hot-toast";
 import { useTranslations } from "next-intl";
-import { Mail, Send } from "lucide-react";
+import { FiMail, FiSend } from "react-icons/fi";
 import ApiService from "@/app/services/ApiService";
 import { log } from "@/app/services/logger";
 import { API_ENDPOINTS } from "@/lib/constants";
@@ -58,7 +58,7 @@ export function NewsletterForm() {
         label={t("label")}
         hideLabel
         placeholder={t("placeholder")}
-        icon={<Mail className="size-4" />}
+        icon={<FiMail className="size-4" />}
         error={errorKey ? tValidation(errorKey) : undefined}
         disabled={isSubmitting}
         dir="ltr"
@@ -68,7 +68,7 @@ export function NewsletterForm() {
         type="submit"
         variant="primary"
         isLoading={isSubmitting}
-        icon={<Send className="size-4 rtl:-scale-x-100" />}
+        icon={<FiSend className="size-4 rtl:-scale-x-100" />}
         className="shrink-0"
       >
         {isSubmitting ? t("submitting") : t("submit")}

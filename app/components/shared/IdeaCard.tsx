@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Bookmark, MessageSquare, ThumbsUp } from "lucide-react";
+import { FiBookmark, FiMessageSquare, FiThumbsUp } from "react-icons/fi";
 import { Badge } from "./Badge";
 
 export interface IdeaCardProps {
@@ -18,17 +18,17 @@ export function IdeaCard({ author, category, title, summary, techStack, onRequir
   const t = useTranslations("ideaCard");
 
   const actions = [
-    { key: "like", icon: ThumbsUp, label: t("like"), reason: t("gate.like") },
-    { key: "comment", icon: MessageSquare, label: t("comment"), reason: t("gate.comment") },
-    { key: "save", icon: Bookmark, label: t("save"), reason: t("gate.save") },
+    { key: "like", icon: FiThumbsUp, label: t("like"), reason: t("gate.like") },
+    { key: "comment", icon: FiMessageSquare, label: t("comment"), reason: t("gate.comment") },
+    { key: "save", icon: FiBookmark, label: t("save"), reason: t("gate.save") },
   ] as const;
 
   return (
-    <article className="group flex h-full flex-col rounded-2xl border border-edge bg-surface p-6 shadow-card transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-2 hover:border-secondary/40 hover:shadow-xl hover:shadow-secondary/5 motion-reduce:transform-none">
+    <article className="group flex h-full flex-col rounded-2xl border border-edge bg-surface p-6 shadow-card transition-all duration-500 ease-out hover:-translate-y-2 hover:border-secondary/40 hover:shadow-xl hover:shadow-secondary/5 motion-reduce:transform-none">
       <div className="mb-4 flex items-center justify-between gap-3">
         <div className="flex min-w-0 items-center gap-2">
           <span
-            className="grid size-8 shrink-0 place-items-center rounded-full bg-primary/10 text-sm font-bold text-primary"
+            className="grid size-8 shrink-0 place-items-center rounded-full bg-primary/10 text-sm font-bold text-primary transition-transform duration-300 group-hover:scale-110"
             aria-hidden="true"
           >
             {author.charAt(0)}
@@ -59,7 +59,7 @@ export function IdeaCard({ author, category, title, summary, techStack, onRequir
         <button
           type="button"
           onClick={() => onRequireAuth(t("gate.details"))}
-          className="rounded-md text-sm font-bold text-secondary-dark underline-offset-4 hover:underline"
+          className="rounded-md text-sm font-bold text-secondary-dark underline-offset-4 hover:underline transition-all active:scale-95"
         >
           {t("viewDetails")}
         </button>
@@ -72,7 +72,7 @@ export function IdeaCard({ author, category, title, summary, techStack, onRequir
               onClick={() => onRequireAuth(reason)}
               aria-label={label}
               title={label}
-              className="grid size-9 place-items-center rounded-lg text-content transition-colors hover:bg-secondary/10 hover:text-secondary-dark"
+              className="grid size-9 place-items-center rounded-lg text-content transition-all duration-200 hover:bg-secondary/10 hover:text-secondary-dark hover:scale-110 active:scale-95"
             >
               <Icon className="size-4" aria-hidden="true" />
             </button>

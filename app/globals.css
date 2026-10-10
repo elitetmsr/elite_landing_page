@@ -28,9 +28,13 @@
     --surface-alt: 247 250 252;
     --surface-muted: 237 242 247;
     --surface-info: 235 244 255;
+    --surface-dark: 7 14 28;
+    --surface-navy: 10 21 45;
 
     --body: 45 55 72;
+    --body-dark: 241 245 249;
     --content: 74 85 104;
+    --content-dark: 203 213 225;
     --edge: 226 232 240;
 
     --success: 22 163 74;
@@ -45,12 +49,19 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
     -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden !important;
+    max-width: 100vw;
+    width: 100%;
   }
 
   body {
     @apply bg-surface text-body antialiased;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
+    max-width: 100vw;
+    width: 100%;
+    position: relative;
   }
 
   /* Visible keyboard focus on every interactive element */

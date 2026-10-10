@@ -1,5 +1,5 @@
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
-import { Loader2 } from "lucide-react";
+import { CgSpinner } from "react-icons/cg";
 import { cn } from "@/lib/utils";
 
 export type ButtonVariant = "primary" | "secondary" | "accent" | "outline" | "ghost" | "glass";
@@ -13,15 +13,15 @@ export interface ButtonStyleOptions {
 }
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
-  primary: "bg-primary text-white shadow-card hover:bg-primary-dark",
+  primary: "bg-primary text-white shadow-card hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/20",
   secondary:
-    "bg-gradient-to-br from-secondary to-secondary-dark text-white shadow-glow hover:brightness-110",
-  accent: "bg-accent text-white shadow-glow-accent hover:bg-accent/90",
+    "bg-gradient-to-br from-secondary to-secondary-dark text-white shadow-glow hover:brightness-110 hover:shadow-xl hover:shadow-secondary/25",
+  accent: "bg-accent text-white shadow-glow-accent hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/20",
   outline:
-    "border-[1.5px] border-primary bg-transparent text-primary hover:bg-primary hover:text-white",
+    "border-[1.5px] border-primary bg-transparent text-primary hover:bg-primary hover:text-white hover:shadow-md",
   ghost: "bg-transparent text-content hover:bg-surface-muted hover:text-primary",
   glass:
-    "border border-white/25 bg-white/10 text-white backdrop-blur-md hover:border-white/40 hover:bg-white/20",
+    "border border-white/25 bg-white/10 text-white backdrop-blur-md hover:border-white/40 hover:bg-white/20 hover:shadow-md",
 };
 
 const SIZE_CLASSES: Record<ButtonSize, string> = {
@@ -39,8 +39,8 @@ export function buttonClasses({
 }: ButtonStyleOptions = {}): string {
   return cn(
     "group/btn inline-flex select-none items-center justify-center whitespace-nowrap rounded-xl font-bold",
-    "transition-[transform,background-color,border-color,color,box-shadow,filter] duration-200 ease-out",
-    "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] motion-reduce:transform-none",
+    "transition-all duration-300 ease-out",
+    "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] motion-reduce:transform-none cursor-pointer",
     "disabled:pointer-events-none disabled:opacity-60",
     VARIANT_CLASSES[variant],
     SIZE_CLASSES[size],
@@ -64,10 +64,10 @@ export function renderButtonContent({
   isLoading = false,
 }: ButtonContentOptions): ReactNode {
   const iconNode = isLoading ? (
-    <Loader2 className="size-4 animate-spin" aria-hidden="true" />
+    <CgSpinner className="size-4 animate-spin shrink-0" aria-hidden="true" />
   ) : icon ? (
     <span
-      className="inline-flex shrink-0 transition-transform duration-200 group-hover/btn:translate-x-0.5 rtl:group-hover/btn:-translate-x-0.5"
+      className="inline-flex shrink-0 transition-transform duration-300 group-hover/btn:translate-x-0.5 rtl:group-hover/btn:-translate-x-0.5 group-hover/btn:scale-110"
       aria-hidden="true"
     >
       {icon}

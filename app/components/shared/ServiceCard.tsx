@@ -1,12 +1,12 @@
-import type { LucideIcon } from "lucide-react";
-import { ArrowUpRight } from "lucide-react";
+import type { IconType } from "react-icons";
+import { FiArrowUpRight } from "react-icons/fi";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 export interface ServiceCardProps {
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: IconType;
   href: string;
   ctaLabel: string;
   className?: string;
@@ -18,7 +18,7 @@ export function ServiceCard({ title, description, icon: Icon, href, ctaLabel, cl
     <article
       className={cn(
         "group relative flex h-full flex-col rounded-2xl border border-edge bg-surface p-6 shadow-card",
-        "transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-2 hover:border-secondary/40 hover:shadow-xl hover:shadow-secondary/5 motion-reduce:transform-none",
+        "transition-all duration-500 ease-out hover:-translate-y-2 hover:border-secondary/40 hover:shadow-xl hover:shadow-secondary/5 motion-reduce:transform-none",
         "has-[a:focus-visible]:ring-2 has-[a:focus-visible]:ring-secondary has-[a:focus-visible]:ring-offset-2",
         className
       )}
@@ -37,7 +37,7 @@ export function ServiceCard({ title, description, icon: Icon, href, ctaLabel, cl
 
       <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-secondary-dark transition-colors duration-300" aria-hidden="true">
         {ctaLabel}
-        <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
+        <FiArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
       </span>
     </article>
   );

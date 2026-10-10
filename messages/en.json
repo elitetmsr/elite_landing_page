@@ -2,18 +2,123 @@
   "nav": {
     "home": "Home",
     "solutions": "Solutions",
+    "solutionsDropdown": "Solutions",
+    "productsDropdown": "Products & Projects",
+    "solutionsItems": {
+      "consulting": "Tech Consulting",
+      "web": "Web Platforms & Apps",
+      "mobile": "Mobile Apps",
+      "erp": "ERP Systems",
+      "ai": "AI & Automation"
+    },
+    "productsItems": {
+      "polyline": "Polyline",
+      "bareeq": "Bareeq X",
+      "amanCar": "Aman Car",
+      "maher": "Maher AI Assistant"
+    },
     "techPlatforms": "Tech platforms",
     "projects": "Projects & products",
     "careers": "Careers",
-    "about": "About us",
+    "about": "About Elite Tech",
     "community": "Community",
     "contact": "Contact us",
+    "login": "Sign in",
+    "support": "Tech support",
+    "egypt": "Egypt, EGP",
+    "polyline": "Polyline",
+    "storePricing": "Store & Pricing",
+    "bookDiagnosticCta": "Book a free diagnostic session",
     "joinCommunity": "Join the community",
     "mainNav": "Main navigation",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "switchLanguage": "Switch to Arabic",
     "languageName": "العربية"
+  },
+  "booking": {
+    "meta": {
+      "title": "Book a Diagnostic Session with an Expert & Developer | {brand}",
+      "description": "We sit down with you to understand how your company actually operates, identify where time and money are lost, and determine the right tech solution."
+    },
+    "badge": "Free · 30 minutes · No commitment",
+    "title": "Book a diagnostic session with an expert & developer.",
+    "subtitle": "We sit down with you to understand how your company actually operates, identify where time and money are lost, and determine the right tech solution.",
+    "whatYouGetTitle": "What do you get from the session?",
+    "outcomes": {
+      "one": {
+        "title": "Clear problem roadmap",
+        "subtitle": "Where operations stall, and why"
+      },
+      "two": {
+        "title": "Solution priorities",
+        "subtitle": "What gets built first, and what gets deferred"
+      },
+      "three": {
+        "title": "Written requirements list",
+        "subtitle": "Base your decisions on it, with us or anyone else"
+      }
+    },
+    "attendeeCard": {
+      "title": "Attending with you: Operations Expert + Developer",
+      "subtitle": "Tailored to your sector: Finance, Procurement, or Field Sales"
+    },
+    "steps": {
+      "date": "1 · Date",
+      "details": "2 · Details",
+      "confirm": "3 · Confirm"
+    },
+    "meetingTypes": {
+      "video": "Video Call",
+      "whatsapp": "WhatsApp",
+      "office": "Office Visit (Cairo)"
+    },
+    "availableTimesLabel": "Available Slots - Monday 12 October · Cairo Time",
+    "availableSlotsHeader": "Available Slots - {date} · Cairo Time",
+    "summary": {
+      "date": "Date",
+      "time": "Time",
+      "meeting": "Meeting"
+    },
+    "nextDetailsCta": "Next: Your Details",
+    "confirmBookingCta": "Confirm Booking",
+    "backCta": "Back",
+    "note": "We will send confirmation and meeting link on WhatsApp and email.",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "phone": "Phone / WhatsApp",
+      "phonePlaceholder": "+20 100 000 0000",
+      "email": "Email Address",
+      "emailPlaceholder": "name@company.com",
+      "company": "Company / Sector",
+      "companyPlaceholder": "e.g. Retail or Logistics",
+      "notes": "Brief about your challenge or request",
+      "notesPlaceholder": "Briefly describe your key operational challenges..."
+    },
+    "success": {
+      "title": "Diagnostic Session Booked Successfully!",
+      "subtitle": "Appointment details and meeting link have been sent to your email and WhatsApp.",
+      "backHome": "Back to Home"
+    },
+    "whatHappensNext": {
+      "title": "What happens after booking?",
+      "step1": {
+        "num": "01",
+        "title": "Confirmation in minutes",
+        "desc": "WhatsApp message with date, link, and assigned expert."
+      },
+      "step2": {
+        "num": "02",
+        "title": "Two quick questions before session",
+        "desc": "We send two brief questions so we can prepare for your company."
+      },
+      "step3": {
+        "num": "03",
+        "title": "Session & Action Plan",
+        "desc": "Within 2 days after the session, you receive the full requirements list and next steps."
+      }
+    }
   },
   "home": {
     "meta": {
@@ -201,6 +306,9 @@
     "aboutPlatform": "About the platform",
     "commercialRegister": "Commercial register",
     "rights": "© {year} {brand}. All rights reserved.",
+    "followUs": "Follow Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
     "newsletter": {
       "title": "Get community updates",
       "description": "New ideas, open roles and events, once a month.",
